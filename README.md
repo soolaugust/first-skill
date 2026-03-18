@@ -1,91 +1,91 @@
 # first-principles-thinking
 
-A Claude Code skill that forces decomposition to fundamental facts before reasoning — not analogy, convention, or "how others do it."
+一个 Claude Code skill，强制要求在推理之前先将问题分解到最基本的事实——而不是依赖类比、惯例或"别人怎么做"。
 
-## What It Does
+## 功能说明
 
-When you face any analysis, design, debugging, or decision task, this skill enforces a structured four-step process:
+当你面对任何分析、设计、调试或决策任务时，这个 skill 会强制执行四步结构化流程：
 
-1. **Identify assumptions** — list everything you're taking for granted
-2. **Ask "why" (3+ layers)** — challenge each assumption at its root
-3. **Restore basic facts** — what remains after stripping all assumptions?
-4. **Rebuild from zero** — derive the optimal solution from those facts, not from history
+1. **识别假设** — 列出所有你正在依赖的假设
+2. **追问"为什么"（至少 3 层）** — 从根本上挑战每一个假设
+3. **还原基本事实** — 剥离所有假设后，剩下什么是确定的？
+4. **从零重建** — 从这些事实出发推导最优解，而不是从历史经验出发
 
-## When to Use
+## 适用场景
 
-Invoke this skill when:
+在以下情况下调用此 skill：
 
-- Analyzing a problem or bug
-- Making architectural or design decisions
-- Explaining a concept to others
-- Debugging unexpected behavior
-- Evaluating technology choices
+- 分析问题或 bug
+- 做架构或设计决策
+- 向他人解释概念
+- 调试异常行为
+- 评估技术选型
 
-## Installation
+## 安装
 
-Copy `SKILL.md` into your `.claude/skills/first-principles-thinking/` directory:
+将 `SKILL.md` 复制到项目的 `.claude/skills/first-principles-thinking/` 目录：
 
 ```bash
 mkdir -p .claude/skills/first-principles-thinking
 cp SKILL.md .claude/skills/first-principles-thinking/
 ```
 
-Or install globally (available across all projects):
+或全局安装（所有项目均可使用）：
 
 ```bash
 mkdir -p ~/.claude/skills/first-principles-thinking
 cp SKILL.md ~/.claude/skills/first-principles-thinking/
 ```
 
-## Usage
+## 使用方法
 
-In Claude Code, invoke with the Skill tool:
+在 Claude Code 中通过 Skill 工具调用：
 
 ```
 /first-principles-thinking
 ```
 
-Or reference it in your `CLAUDE.md`:
+或在 `CLAUDE.md` 中引用：
 
 ```markdown
-Before any technical analysis or design decision, invoke the first-principles-thinking skill.
+在任何技术分析或设计决策之前，调用 first-principles-thinking skill。
 ```
 
-## Key Principles
+## 核心原则
 
-### Forbidden Thinking Patterns
+### 禁止的思维模式
 
-| Pattern | Why harmful | Replace with |
-|---------|-------------|--------------|
-| "Industry standard is X" | Convention may be outdated or wrong for your constraints | Verify the constraint exists in your context |
-| "We solved it with X last time" | Context differs; solutions don't transfer directly | Re-analyze current constraints |
-| "Framework Y does it this way" | Frameworks have their own constraints | Identify the core problem the framework solves |
-| "Experts say you should" | Expert advice is based on their constraints | Understand the preconditions behind the advice |
-| "Just ship it, fix later" | Wrong direction compounds exponentially | Define problem boundaries first |
+| 思维模式 | 为什么有害 | 替换方式 |
+|---------|-----------|---------|
+| "业界通常这样做" | 惯例可能已过时或针对不同约束 | 确认该约束在你的场景中是否存在 |
+| "上次我们用 X 解决了" | 情境不同，方案不可直接复用 | 重新分析当前约束 |
+| "参考 Y 框架的做法" | 框架有自己的约束，不一定适合你 | 识别框架解决的核心问题 |
+| "这个领域专家都说应该" | 专家建议基于其自身约束 | 理解建议背后的前提条件 |
+| "先做再说，遇到问题再调整" | 从错误方向出发，调整成本指数增长 | 先定义问题边界，再动手 |
 
-### Red Flags (Stop and Re-derive)
+### 红旗信号（立即停止重新推导）
 
-If you catch yourself thinking:
+出现以下任何一种想法，说明你在走捷径：
 
-- "This is obviously an X-type problem..."
-- "Just follow [product/paper/framework]"
-- "I know this domain, no need to analyze"
-- "Time pressure, use the standard approach"
+- "这明显就是 X 类问题，所以..."
+- "照着 [某产品/某论文/某框架] 做就行了"
+- "这个领域我熟，不需要从基础推"
+- "时间紧，直接用常规方案"
 
-**Time pressure is not a reason to skip analysis.** Fast execution in the wrong direction wastes more time than slow derivation.
+**时间压力不是跳过分析的理由。** 在错误方向上的快速执行比慢速推导浪费更多时间。
 
-## Quick Reference
+## 快速参考
 
 ```
-What is the actual problem? (Not the symptom — the root contradiction)
+问题是什么？（不是"表面现象"，是根本矛盾）
     ↓
-What are the constraints? (Physical / logical / resource)
+有哪些约束？（物理的/逻辑的/资源的）
     ↓
-What is the ideal solution if constraints didn't exist?
+如果约束不存在，理想解是什么？
     ↓
-Which constraints are real vs. "we've always done it this way"?
+哪些约束是真实的，哪些是"我们一直这样做"？
     ↓
-What is the closest-to-ideal solution under real constraints?
+在真实约束下，最接近理想解的方案是什么？
 ```
 
 ## License
